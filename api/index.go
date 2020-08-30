@@ -33,6 +33,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
       return
    }
 
+   w.Header().Set("Cache-Control", "public, max-age=86400, immutable")
    w.Header().Set("Content-Type", "application/json")
    _, err = w.Write(body)
    if err != nil {
